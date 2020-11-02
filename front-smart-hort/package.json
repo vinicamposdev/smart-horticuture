@@ -28,6 +28,7 @@
     "build:css": "postcss src/index.css -o src/tailwind.css",
     "watch:css": "postcss src/index.css -o src/tailwind.css -w",
     "start": "yarn build:css && react-scripts start",
+    "serve": "concurrently \"yarn start\" \"cd ../back-smart-hort && yarn dev:server\"",
     "build": "yarn build:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -46,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
   }
 }

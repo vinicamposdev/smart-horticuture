@@ -7,7 +7,7 @@ export default function Feiras() {
 
   useEffect(() => {
     (async function getRepositories() {
-      const repositoriesFetched = await api.get("immobiles");
+      const repositoriesFetched = await api.get("street-marckets");
       setRepositories(repositoriesFetched.data);
     })();
   }, []);
@@ -28,4 +28,3 @@ export default function Feiras() {
     </div>
   );
 }
-
