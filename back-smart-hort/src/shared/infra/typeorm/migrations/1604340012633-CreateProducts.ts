@@ -1,11 +1,11 @@
 import {MigrationInterface, QueryRunner, Table, TableColumn, TableForeignKey} from "typeorm";
 
-export class CreateStreetMarcket1604326547650
+export class CreateProducts1604340012633
 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'streetmarcket',
+        name: 'products',
         columns: [
           {
             name: 'id',
@@ -15,19 +15,34 @@ implements MigrationInterface {
             default: 'uuid_generate_v4()',
           },
           {
-            name: 'delivery_time',
+            name: 'weight',
+            type: 'varchar',
+            isNullable: true,
+          },
+          {
+            name: 'price',
+            type: 'integer',
+            default: 0,
+          },
+          {
+            name: 'quantity',
             type: 'integer',
             isNullable: false,
           },
           {
-            name: 'address',
-            type: 'varchar',
-            isNullable: false,
+            name: 'minimum',
+            type: 'integer',
+            isNullable: true,
+          },
+          {
+            name: 'maximum',
+            type: 'integer',
+            isNullable: true,
           },
           {
             name: 'description',
             type: 'varchar',
-            isNullable: false,
+            isNullable: true,
           },
           {
             name: 'photo_1',
@@ -53,21 +68,21 @@ implements MigrationInterface {
       }),
     )
     await queryRunner.addColumn(
-      'streetmarcket',
+      'products',
       new TableColumn({
-        name: 'user_id',
+        name: 'street_marcket_id',
         type: 'uuid',
         isNullable: false,
       }),
     )
 
     await queryRunner.createForeignKey(
-      'streetmarcket',
+      'products',
       new TableForeignKey({
-        name: 'immobile_user',
-        columnNames: ['user_id'],
+        name: 'marcket_product',
+        columnNames: ['street_marcket_id'],
         referencedColumnNames: ['id'],
-        referencedTableName: 'users',
+        referencedTableName: 'streetmarcket',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       }),
@@ -75,8 +90,8 @@ implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('streetmarcket', 'immobile_user')
-    await queryRunner.dropColumn('streetmarcket', 'user_id')
-    await queryRunner.dropTable('streetmarcket')
+    await queryRunner.dropForeignKey('products', 'marcket_product')
+    await queryRunner.dropColumn('products', 'user_id')
+    await queryRunner.dropTable('products')
   }
 }
