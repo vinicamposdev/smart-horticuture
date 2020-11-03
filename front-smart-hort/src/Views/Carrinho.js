@@ -3,9 +3,21 @@ import { Link, useParams } from 'react-router-dom'
 import FeiraCard from '../Components/FeirasCard'
 import api from '../utils/api'
 
+
+
 export default function Carrinho() {
+  const [ endereco, setEndereco ] = useState('')
   const urlParams = useParams()
 	// const [repositories, setRepositories] = useState([]);
+
+  function handleSubmit(event){
+    if(!endereco){
+      event.preventDefault()
+      alert('Por favor preencha o endereco')
+    }else {
+      alert('Compra registrada, agora é só aguardar e seus produtos chegarão até você')
+    }
+  }
 
   const content = <div >
     <h1 className="font-sans text-4xl mb-4">Resumo da compra:</h1>
@@ -28,15 +40,18 @@ export default function Carrinho() {
 
       <span className="text-xl mt-6 mb-4">Preço total: R$ {urlParams.totalPrice},00</span>
       <span className="mb-2">Por favor digite seu endereço agora:</span>
-      <input className=" mt-6 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id='endereco'  placeholder='Endereco'/>
-      <button type="submit"
+      <input onChange={(event)=>setEndereco(event.target.value)}  value={endereco} className=" mt-6 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id='endereco'  placeholder='Endereco'/>
+      <Link 
+      to="/"
+       onClick={handleSubmit}
 			className="mt-4 bg-yellow-700 w-64 m-auto hover:bg-yellow-600 text-black font-bold p-2 flex justify-center"
 		>
 			Confirmar
-		</button>
+		</Link>
     <Link
       to="/"
-			className="bg-red-700 mt-4 w-64 m-auto hover:bg-red-600 text-black font-bold p-2 flex justify-center"
+      className="bg-red-700 mt-4 w-64 m-auto hover:bg-red-600 text-black font-bold p-2 flex justify-center"
+      
 		>
       Cancelar
     </Link>
