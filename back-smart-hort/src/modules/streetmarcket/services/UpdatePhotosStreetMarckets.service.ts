@@ -11,7 +11,7 @@ import IStreetMarcketsRepository from '../repositories/IStreetMarckets.repositor
 import AppError from '../../../shared/errors/AppErrors'
 
 interface IRequest {
-  immobile_id: string
+  street_marcket_id: string
   photo_1: string
   photo_2: string
 }
@@ -24,49 +24,49 @@ class UpdatePhotosStreetMarckets {
   ) {}
 
   public async run({
-    immobile_id,
+    street_marcket_id,
     photo_1,
     photo_2,
   }: IRequest): Promise<StreetMarcket> {
-    const immobile = await this.streemarcketRepository.findById(immobile_id)
-    if (!immobile) {
+    const streetMarcket = await this.streemarcketRepository.findById(street_marcket_id)
+    if (!streetMarcket) {
       throw new AppError('StreetMarcket must exist', 400)
     }
 
-    if (immobile.photo_1) {
-      const immobilePhoto1FilePath = path.join(
+    if (streetMarcket.photo_1) {
+      const streetMarcketPhoto1FilePath = path.join(
         uploadConfig.directory,
-        immobile.photo_1,
+        streetMarcket.photo_1,
       )
-      const immobilePhoto1Exists = await fs.promises.stat(
-        immobilePhoto1FilePath,
+      const streetMarcketPhoto1Exists = await fs.promises.stat(
+        streetMarcketPhoto1FilePath,
       )
 
-      if (immobilePhoto1Exists) {
-        fs.promises.unlink(immobilePhoto1FilePath)
+      if (streetMarcketPhoto1Exists) {
+        fs.promises.unlink(streetMarcketPhoto1FilePath)
       }
     }
 
-    if (immobile.photo_2) {
-      const immobilePhoto1FilePath = path.join(
+    if (streetMarcket.photo_2) {
+      const streetMarcketPhoto1FilePath = path.join(
         uploadConfig.directory,
-        immobile.photo_2,
+        streetMarcket.photo_2,
       )
-      const immobilePhoto1Exists = await fs.promises.stat(
-        immobilePhoto1FilePath,
+      const streetMarcketPhoto1Exists = await fs.promises.stat(
+        streetMarcketPhoto1FilePath,
       )
 
-      if (immobilePhoto1Exists) {
-        fs.promises.unlink(immobilePhoto1FilePath)
+      if (streetMarcketPhoto1Exists) {
+        fs.promises.unlink(streetMarcketPhoto1FilePath)
       }
     }
 
-    immobile.photo_1 = photo_1
-    immobile.photo_2 = photo_2
+    streetMarcket.photo_1 = photo_1
+    streetMarcket.photo_2 = photo_2
 
-    await this.streemarcketRepository.save(immobile)
+    await this.streemarcketRepository.save(streetMarcket)
 
-    return immobile
+    return streetMarcket
   }
 }
 

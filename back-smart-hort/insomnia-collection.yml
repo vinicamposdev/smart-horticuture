@@ -1,15 +1,15 @@
 _type: export
 __export_format: 4
-__export_date: 2020-09-28T11:15:10.146Z
-__export_source: insomnia.desktop.app:v2020.4.1
+__export_date: 2020-11-03T12:10:22.419Z
+__export_source: insomnia.desktop.app:v2020.4.2
 resources:
   - _id: req_9713fd822ac047e8b6fcf66912bae5cc
     parentId: fld_1c53021d1dd9468cbc983bc7a03e771e
     modified: 1600030593231
     created: 1598661182643
-    url: '{{ base_url }}/sessions'
+    url: "{{ base_url }}/sessions"
     name: Create
-    description: ''
+    description: ""
     method: POST
     body:
       mimeType: application/json
@@ -38,7 +38,7 @@ resources:
     modified: 1598660796147
     created: 1598660796147
     name: Sessions
-    description: ''
+    description: ""
     environment: {}
     environmentPropertyOrder: null
     metaSortKey: -1598660796147
@@ -48,7 +48,7 @@ resources:
     modified: 1598070946485
     created: 1598070946485
     name: TS Server
-    description: ''
+    description: ""
     scope: null
     _type: workspace
   - _id: req_d46a8fdfffe34a84897367b31d94584e
@@ -59,7 +59,7 @@ resources:
       'req_eac7d65942054a348216523484a01f8e', 'b64::JC5waG90b18x::46b',
       'no-history', 60 %}"
     name: Photo
-    description: ''
+    description: ""
     method: GET
     body: {}
     parameters: []
@@ -76,21 +76,21 @@ resources:
     _type: request
   - _id: fld_ecf42d1826114e2c907158c586fc38b4
     parentId: wrk_d300e3ee2aa24c3d9637c3f6fb21d98f
-    modified: 1598164092055
+    modified: 1604339147626
     created: 1598071136556
     name: StreetMarckets
-    description: ''
+    description: ""
     environment: {}
     environmentPropertyOrder: null
     metaSortKey: -1598071136556
     _type: request_group
   - _id: req_f2602f007bb043549516ac4c5904a9e2
     parentId: fld_ecf42d1826114e2c907158c586fc38b4
-    modified: 1601285789901
+    modified: 1604338454407
     created: 1598071147988
-    url: '{{ base_url }}/streemarcket'
+    url: "{{ base_url }}/street-marckets"
     name: Create
-    description: ''
+    description: ""
     method: POST
     body:
       mimeType: application/json
@@ -104,6 +104,10 @@ resources:
       - id: pair_c9327545a5a14013baa635af1755dde2
         name: Content-Type
         value: application/json
+      - name: ""
+        value: ""
+        description: ""
+        id: pair_b43fb3787ae34aaeb8ff52abecd8ce75
     authentication:
       type: bearer
       token: "{% response 'body', 'req_9713fd822ac047e8b6fcf66912bae5cc',
@@ -119,21 +123,21 @@ resources:
     _type: request
   - _id: req_8e129ea207ad4aa28886bb7232a814e7
     parentId: fld_ecf42d1826114e2c907158c586fc38b4
-    modified: 1601291326037
+    modified: 1604338437717
     created: 1598149929915
-    url: '{{ base_url }}/streemarcket'
+    url: "{{ base_url }}/street-marckets"
     name: Read
-    description: ''
+    description: ""
     method: GET
     body:
       mimeType: application/json
-      text: ''
+      text: ""
     parameters: []
     headers:
       - id: pair_c9327545a5a14013baa635af1755dde2
         name: Content-Type
         value: application/json
-      - description: ''
+      - description: ""
         disabled: true
         id: pair_bf143aff545d480a93b400a6c2af6da1
         name: authorization
@@ -151,11 +155,11 @@ resources:
     _type: request
   - _id: req_1b515a7d5f934d418f7802337a353a7c
     parentId: fld_ecf42d1826114e2c907158c586fc38b4
-    modified: 1601286092635
+    modified: 1604339158195
     created: 1601129315989
-    url: '{{ base_url }}/streemarcket/filter'
+    url: "{{ base_url }}/street-marckets/filter"
     name: Filter
-    description: ''
+    description: ""
     method: POST
     body:
       mimeType: application/json
@@ -168,7 +172,7 @@ resources:
       - id: pair_c9327545a5a14013baa635af1755dde2
         name: Content-Type
         value: application/json
-      - description: ''
+      - description: ""
         disabled: true
         id: pair_bf143aff545d480a93b400a6c2af6da1
         name: authorization
@@ -190,29 +194,29 @@ resources:
     _type: request
   - _id: req_eac7d65942054a348216523484a01f8e
     parentId: fld_ecf42d1826114e2c907158c586fc38b4
-    modified: 1601291213561
+    modified: 1604404620567
     created: 1601167051007
-    url: '{{ base_url }}/streemarcket/photos'
+    url: "{{ base_url }}/street-marckets/photos"
     name: Photo
-    description: ''
+    description: ""
     method: PATCH
     body:
       mimeType: multipart/form-data
       params:
-        - description: ''
+        - description: ""
           fileName: /home/smarkio/Pictures/budha_cyberpunk.jpg
           id: pair_24791b01d9e040c49c603fe807cb01cf
           name: photos
           type: file
-          value: ''
-        - name: immobile_id
+          value: ""
+        - name: street_marcket_id
           value: "{% response 'body', 'req_f2602f007bb043549516ac4c5904a9e2',
             'b64::JC5pZA==::46b', 'always', 60 %}"
-          description: ''
+          description: ""
           id: pair_309c8b0d93c04831a885dad06da0f78d
         - name: photos
-          value: ''
-          description: ''
+          value: ""
+          description: ""
           id: pair_4ca2b92cb7a4404987b8eb671d023f1f
           type: file
           multiline: null
@@ -227,7 +231,7 @@ resources:
       token: "{% response 'body', 'req_9713fd822ac047e8b6fcf66912bae5cc',
         'b64::JC50b2tlbg==::46b', 'always', 60 %}"
       type: bearer
-      disabled: true
+      disabled: false
     metaSortKey: -1597236260970
     isPrivate: false
     settingStoreCookies: true
@@ -245,7 +249,7 @@ resources:
       'req_1eea06c75b76427cac310a3a70f3cd00', 'b64::JC5hdmF0YXI=::46b',
       'no-history', 60 %}"
     name: Avatar
-    description: ''
+    description: ""
     method: GET
     body: {}
     parameters: []
@@ -265,7 +269,7 @@ resources:
     modified: 1598206447931
     created: 1598206447931
     name: Users
-    description: ''
+    description: ""
     environment: {}
     environmentPropertyOrder: null
     metaSortKey: -1597236255303.5
@@ -274,9 +278,9 @@ resources:
     parentId: fld_8fd15682eb434f2fab42356a15dfdf01
     modified: 1601182578789
     created: 1598206447946
-    url: '{{ base_url }}/users'
+    url: "{{ base_url }}/users"
     name: Create
-    description: ''
+    description: ""
     method: POST
     body:
       mimeType: application/json
@@ -305,13 +309,13 @@ resources:
     parentId: fld_8fd15682eb434f2fab42356a15dfdf01
     modified: 1598206464414
     created: 1598206447965
-    url: '{{ base_url }}/users'
+    url: "{{ base_url }}/users"
     name: Read
-    description: ''
+    description: ""
     method: GET
     body:
       mimeType: application/json
-      text: ''
+      text: ""
     parameters: []
     headers:
       - id: pair_c9327545a5a14013baa635af1755dde2
@@ -331,19 +335,19 @@ resources:
     parentId: fld_8fd15682eb434f2fab42356a15dfdf01
     modified: 1601162265801
     created: 1599212559427
-    url: '{{ base_url }}/users/avatar'
+    url: "{{ base_url }}/users/avatar"
     name: Avatar
-    description: ''
+    description: ""
     method: PATCH
     body:
       mimeType: multipart/form-data
       params:
-        - description: ''
+        - description: ""
           fileName: /home/smarkio/Pictures/profile.jpg
           id: pair_24791b01d9e040c49c603fe807cb01cf
           name: avatar
           type: file
-          value: ''
+          value: ""
     parameters: []
     headers:
       - id: pair_c9327545a5a14013baa635af1755dde2
@@ -385,7 +389,7 @@ resources:
     modified: 1598070946499
     created: 1598070946499
     fileName: TS Server
-    contents: ''
+    contents: ""
     contentType: yaml
     _type: api_spec
   - _id: env_2bc6f921cb134dd691c642326f048c79
@@ -396,9 +400,9 @@ resources:
     data:
       base_url: http://localhost:3333
     dataPropertyOrder:
-      '&':
+      "&":
         - base_url
-    color: '#7d69cb'
+    color: "#7d69cb"
     isPrivate: false
     metaSortKey: 1598071165350
     _type: environment
@@ -410,9 +414,9 @@ resources:
     data:
       base_url: http://64.227.86.48
     dataPropertyOrder:
-      '&':
+      "&":
         - base_url
-    color: '#ff0000'
+    color: "#ff0000"
     isPrivate: false
     metaSortKey: 1598071165400
     _type: environment

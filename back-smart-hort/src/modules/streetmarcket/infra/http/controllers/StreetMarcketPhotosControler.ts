@@ -6,7 +6,7 @@ import UpdatePhotosStreetMarcketService from '@modules/streetmarcket/services/Up
 
 export default class StreetMarcketsPhotosControler {
   public async update(req: Request, res: Response): Promise<Response> {
-    const { immobile_id } = req.body
+    const { street_marcket_id } = req.body
 
     const files = req.files as {
       [fieldname: string]: Express.Multer.File[]
@@ -22,12 +22,12 @@ export default class StreetMarcketsPhotosControler {
     const photo2 = extractPhoto(files, 1)
 
     const createStreetMarcket = container.resolve(UpdatePhotosStreetMarcketService)
-    const immobile = await createStreetMarcket.run({
-      immobile_id,
+    const streetMarcket = await createStreetMarcket.run({
+      street_marcket_id,
       photo_1: photo1,
       photo_2: photo2,
     })
 
-    return res.json(immobile)
+    return res.json(streetMarcket)
   }
 }
