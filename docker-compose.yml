@@ -1,0 +1,41 @@
+version: "3"
+
+services: 
+  database:
+    image: postgres
+    container_name: postgresdb
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - .:/usr/database
+
+  app:
+    build: ./back-smart-hort
+    container_name: backsmart
+    volumes: 
+      - .:/home/node/app
+    entrypoint: ./back-smart-hort/.docker/entrypoint.sh
+    ports:
+      - 3333:3333
+    depends_on:
+      - database
+    links: 
+      - database
+
+  
+  front:
+    build: ./front-smart-hort
+    container_name: frontsmart
+    stdin_open: true
+    volumes: 
+      - .:/home/node/app
+    entrypoint: ./front-smart-hort/.docker/entrypoint.sh
+    ports:
+      - 3000:3000
+    depends_on:
+      - database
+    
