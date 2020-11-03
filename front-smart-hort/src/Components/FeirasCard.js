@@ -18,7 +18,7 @@ export default function FeiraCard({dataFeira}) {
 					<span>{dataFeira.address}</span>
 				</div>
 				<Link
-					to={`/products?id=${dataFeira.id}`}
+					to={`/products/${dataFeira.id}`}
 					className="bg-yellow-700 hover:bg-yellow-600 text-black font-bold p-2 flex justify-center"
 				>
 					View

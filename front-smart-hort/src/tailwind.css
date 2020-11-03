@@ -19218,6 +19218,7 @@ video {
 
 .fruta-carrinho {
   width: 3em;
+  max-height: 5em;
 }
 
 #root {
