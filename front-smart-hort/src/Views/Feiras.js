@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FeiraCard from "../Components/FeirasCard";
-import api from "../Hooks/HttpRequests";
+import api from "../utils/api";
 
 export default function Feiras() {
   const [repositories, setRepositories] = useState([]);
@@ -8,6 +8,7 @@ export default function Feiras() {
   useEffect(() => {
     (async function getRepositories() {
       const repositoriesFetched = await api.get("street-marckets");
+      console.log('repositoriesFetched', repositoriesFetched.data)
       setRepositories(repositoriesFetched.data);
     })();
   }, []);
@@ -19,9 +20,8 @@ export default function Feiras() {
       </h1>
       <div className="mt-10 flex flex-col items-center justify-center md:flex-row md:flex-wrap">
         {repositories.map((repository) => (
-          <li>
-            {repository.address}
-            <FeiraCard />
+          <li key={repository.id} >
+            <FeiraCard  dataFeira={repository} />
           </li>
         ))}
       </div>
