@@ -7,15 +7,15 @@ export default function FeiraCard({dataFeira}) {
 			<span className="text-white text-center">Feira do Seu Zé</span>
 			<div className="ml-10 shadow-md max-w-full md:max-w-sm p-2 object-contain">
 				<img
-					className="object-contain w-full"
-					src={dataFeira.photo_1 || "https://images.unsplash.com/photo-1591034704701-080aa12a09df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"}
+					className="object-contain foto-da-feira"
+					src={dataFeira.photo_1 ? `http://localhost:3333/files/${dataFeira.photo_1}` : "https://images.unsplash.com/photo-1591034704701-080aa12a09df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"}
 					alt="feira"
 				/>
 				<div className="shadow-md p-2">
 					<p className="text-white text-sm">
 						{dataFeira.description}
 					</p>
-					<span>{dataFeira.address}</span>
+					<span className="text-white">{dataFeira.address}</span>
 				</div>
 				<Link
 					to={`/products/${dataFeira.id}`}

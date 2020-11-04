@@ -20,7 +20,7 @@ export default function Feiras() {
       </h1>
       <div className="mt-10 flex flex-col items-center justify-center md:flex-row md:flex-wrap">
         {repositories.map((repository) => (
-          <li key={repository.id} >
+          <li className="list-none" key={repository.id} >
             <FeiraCard  dataFeira={repository} />
           </li>
         ))}

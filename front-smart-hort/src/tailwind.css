@@ -19216,6 +19216,11 @@ video {
   width: 4em;
 }
 
+.foto-da-feira {
+  width: 350px;
+  height: 350px;
+}
+
 .fruta-carrinho {
   width: 3em;
   max-height: 5em;
