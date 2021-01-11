@@ -1,0 +1,422 @@
+_type: export
+__export_format: 4
+__export_date: 2020-11-03T12:10:22.419Z
+__export_source: insomnia.desktop.app:v2020.4.2
+resources:
+  - _id: req_9713fd822ac047e8b6fcf66912bae5cc
+    parentId: fld_1c53021d1dd9468cbc983bc7a03e771e
+    modified: 1600030593231
+    created: 1598661182643
+    url: "{{ base_url }}/sessions"
+    name: Create
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "Tests9@test.com",
+        	"password":"pppp"
+        }
+    parameters: []
+    headers:
+      - id: pair_c9327545a5a14013baa635af1755dde2
+        name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1597653704517
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_1c53021d1dd9468cbc983bc7a03e771e
+    parentId: wrk_d300e3ee2aa24c3d9637c3f6fb21d98f
+    modified: 1598660796147
+    created: 1598660796147
+    name: Sessions
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1598660796147
+    _type: request_group
+  - _id: wrk_d300e3ee2aa24c3d9637c3f6fb21d98f
+    parentId: null
+    modified: 1598070946485
+    created: 1598070946485
+    name: TS Server
+    description: ""
+    scope: null
+    _type: workspace
+  - _id: req_d46a8fdfffe34a84897367b31d94584e
+    parentId: fld_ecf42d1826114e2c907158c586fc38b4
+    modified: 1601278263607
+    created: 1601278084936
+    url: "{{ base_url }}/files/{% response 'body',
+      'req_eac7d65942054a348216523484a01f8e', 'b64::JC5waG90b18x::46b',
+      'no-history', 60 %}"
+    name: Photo
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1598071148039
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_ecf42d1826114e2c907158c586fc38b4
+    parentId: wrk_d300e3ee2aa24c3d9637c3f6fb21d98f
+    modified: 1604339147626
+    created: 1598071136556
+    name: StreetMarckets
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1598071136556
+    _type: request_group
+  - _id: req_f2602f007bb043549516ac4c5904a9e2
+    parentId: fld_ecf42d1826114e2c907158c586fc38b4
+    modified: 1604338454407
+    created: 1598071147988
+    url: "{{ base_url }}/street-marckets"
+    name: Create
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"address":"Avenida Fusanobu Yokota 1111  Bairro Jardim Terras do Sul",
+        "rooms": 2
+        }
+    parameters: []
+    headers:
+      - id: pair_c9327545a5a14013baa635af1755dde2
+        name: Content-Type
+        value: application/json
+      - name: ""
+        value: ""
+        description: ""
+        id: pair_b43fb3787ae34aaeb8ff52abecd8ce75
+    authentication:
+      type: bearer
+      token: "{% response 'body', 'req_9713fd822ac047e8b6fcf66912bae5cc',
+        'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+    metaSortKey: -1598071147989
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_8e129ea207ad4aa28886bb7232a814e7
+    parentId: fld_ecf42d1826114e2c907158c586fc38b4
+    modified: 1604338437717
+    created: 1598149929915
+    url: "{{ base_url }}/street-marckets"
+    name: Read
+    description: ""
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    parameters: []
+    headers:
+      - id: pair_c9327545a5a14013baa635af1755dde2
+        name: Content-Type
+        value: application/json
+      - description: ""
+        disabled: true
+        id: pair_bf143aff545d480a93b400a6c2af6da1
+        name: authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTkyMjEwNzcsImV4cCI6MTU5OTMwNzQ3Nywic3ViIjoiMjNmNTBjYTktZTFjYy00ZTgxLThlY2UtZTAzYTYxZDU2Mjg4In0.CsL8BXaDMUoWKukXU3KvPt8GN5wpbFrcs2UfJo-z0KQ
+    authentication: {}
+    metaSortKey: -1597236261045
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_1b515a7d5f934d418f7802337a353a7c
+    parentId: fld_ecf42d1826114e2c907158c586fc38b4
+    modified: 1604339158195
+    created: 1601129315989
+    url: "{{ base_url }}/street-marckets/filter"
+    name: Filter
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"address": "Avenida Fusanobu Yokota, 1111 | Bairro: Jardim Terras do Sul"
+        }
+    parameters: []
+    headers:
+      - id: pair_c9327545a5a14013baa635af1755dde2
+        name: Content-Type
+        value: application/json
+      - description: ""
+        disabled: true
+        id: pair_bf143aff545d480a93b400a6c2af6da1
+        name: authorization
+        value: Bearer
+          eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTkyMjEwNzcsImV4cCI6MTU5OTMwNzQ3Nywic3ViIjoiMjNmNTBjYTktZTFjYy00ZTgxLThlY2UtZTAzYTYxZDU2Mjg4In0.CsL8BXaDMUoWKukXU3KvPt8GN5wpbFrcs2UfJo-z0KQ
+    authentication:
+      disabled: false
+      token: "{% response 'body', 'req_9713fd822ac047e8b6fcf66912bae5cc',
+        'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+      type: bearer
+    metaSortKey: -1597236261020
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_eac7d65942054a348216523484a01f8e
+    parentId: fld_ecf42d1826114e2c907158c586fc38b4
+    modified: 1604404620567
+    created: 1601167051007
+    url: "{{ base_url }}/street-marckets/photos"
+    name: Photo
+    description: ""
+    method: PATCH
+    body:
+      mimeType: multipart/form-data
+      params:
+        - description: ""
+          fileName: /home/smarkio/Pictures/budha_cyberpunk.jpg
+          id: pair_24791b01d9e040c49c603fe807cb01cf
+          name: photos
+          type: file
+          value: ""
+        - name: street_marcket_id
+          value: "{% response 'body', 'req_f2602f007bb043549516ac4c5904a9e2',
+            'b64::JC5pZA==::46b', 'always', 60 %}"
+          description: ""
+          id: pair_309c8b0d93c04831a885dad06da0f78d
+        - name: photos
+          value: ""
+          description: ""
+          id: pair_4ca2b92cb7a4404987b8eb671d023f1f
+          type: file
+          multiline: null
+          fileName: /home/smarkio/Pictures/cyberpunk-car.jpg
+          disabled: false
+    parameters: []
+    headers:
+      - id: pair_c9327545a5a14013baa635af1755dde2
+        name: Content-Type
+        value: multipart/form-data
+    authentication:
+      token: "{% response 'body', 'req_9713fd822ac047e8b6fcf66912bae5cc',
+        'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+      type: bearer
+      disabled: false
+    metaSortKey: -1597236260970
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_92b723f39acd4a9a8058855bc5af1a6e
+    parentId: fld_8fd15682eb434f2fab42356a15dfdf01
+    modified: 1599319241444
+    created: 1599319105327
+    url: "{{ base_url }}/files/{% response 'body',
+      'req_1eea06c75b76427cac310a3a70f3cd00', 'b64::JC5hdmF0YXI=::46b',
+      'no-history', 60 %}"
+    name: Avatar
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication: {}
+    metaSortKey: -1599319105327
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_8fd15682eb434f2fab42356a15dfdf01
+    parentId: wrk_d300e3ee2aa24c3d9637c3f6fb21d98f
+    modified: 1598206447931
+    created: 1598206447931
+    name: Users
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1597236255303.5
+    _type: request_group
+  - _id: req_adb36909a7f8488c83d54e229344b2c1
+    parentId: fld_8fd15682eb434f2fab42356a15dfdf01
+    modified: 1601182578789
+    created: 1598206447946
+    url: "{{ base_url }}/users"
+    name: Create
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name":"test",
+        	"email": "Tests9@test.com",
+        	"password":"pppp"
+        }
+    parameters: []
+    headers:
+      - id: pair_c9327545a5a14013baa635af1755dde2
+        name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1598071147989
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_3779d9f7d7ab402fb88d818834b008c3
+    parentId: fld_8fd15682eb434f2fab42356a15dfdf01
+    modified: 1598206464414
+    created: 1598206447965
+    url: "{{ base_url }}/users"
+    name: Read
+    description: ""
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    parameters: []
+    headers:
+      - id: pair_c9327545a5a14013baa635af1755dde2
+        name: Content-Type
+        value: application/json
+    authentication: {}
+    metaSortKey: -1597236261045
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_1eea06c75b76427cac310a3a70f3cd00
+    parentId: fld_8fd15682eb434f2fab42356a15dfdf01
+    modified: 1601162265801
+    created: 1599212559427
+    url: "{{ base_url }}/users/avatar"
+    name: Avatar
+    description: ""
+    method: PATCH
+    body:
+      mimeType: multipart/form-data
+      params:
+        - description: ""
+          fileName: /home/smarkio/Pictures/profile.jpg
+          id: pair_24791b01d9e040c49c603fe807cb01cf
+          name: avatar
+          type: file
+          value: ""
+    parameters: []
+    headers:
+      - id: pair_c9327545a5a14013baa635af1755dde2
+        name: Content-Type
+        value: multipart/form-data
+    authentication:
+      token: "{% response 'body', 'req_9713fd822ac047e8b6fcf66912bae5cc',
+        'b64::JC50b2tlbg==::46b', 'always', 60 %}"
+      type: bearer
+    metaSortKey: -1597236260995
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_556a8bf95ac171d8bfcabcc251ee73b6f67893cb
+    parentId: wrk_d300e3ee2aa24c3d9637c3f6fb21d98f
+    modified: 1598070946631
+    created: 1598070946631
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1598070946631
+    _type: environment
+  - _id: jar_556a8bf95ac171d8bfcabcc251ee73b6f67893cb
+    parentId: wrk_d300e3ee2aa24c3d9637c3f6fb21d98f
+    modified: 1598070946649
+    created: 1598070946649
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_ade25b751d65493181a8e825d617e976
+    parentId: wrk_d300e3ee2aa24c3d9637c3f6fb21d98f
+    modified: 1598070946499
+    created: 1598070946499
+    fileName: TS Server
+    contents: ""
+    contentType: yaml
+    _type: api_spec
+  - _id: env_2bc6f921cb134dd691c642326f048c79
+    parentId: env_556a8bf95ac171d8bfcabcc251ee73b6f67893cb
+    modified: 1601218035876
+    created: 1598071165350
+    name: dev
+    data:
+      base_url: http://localhost:3333
+    dataPropertyOrder:
+      "&":
+        - base_url
+    color: "#7d69cb"
+    isPrivate: false
+    metaSortKey: 1598071165350
+    _type: environment
+  - _id: env_352f77ed4ead4fe29089b2192c74daa6
+    parentId: env_556a8bf95ac171d8bfcabcc251ee73b6f67893cb
+    modified: 1598658533131
+    created: 1598658470732
+    name: prod
+    data:
+      base_url: http://64.227.86.48
+    dataPropertyOrder:
+      "&":
+        - base_url
+    color: "#ff0000"
+    isPrivate: false
+    metaSortKey: 1598071165400
+    _type: environment

@@ -1,0 +1,17 @@
+#Node dependencies
+node_modules
+package-lock.json
+dist
+
+#Vs Code Dependencies
+.vscode
+
+#Yarn Dependencies
+yarn-error.log
+
+#Local Storage for Images
+tmp/*
+!tmp/.gitkeep
+
+#Tests
+coverage
